@@ -13,9 +13,12 @@
 		9F4211EB23FB9C8C00C0617F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4211E923FB9C8C00C0617F /* Main.storyboard */; };
 		9F4211ED23FB9C8D00C0617F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F4211EC23FB9C8D00C0617F /* Assets.xcassets */; };
 		9F4211F023FB9C8D00C0617F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4211EE23FB9C8D00C0617F /* LaunchScreen.storyboard */; };
+		F71EEC5EED8C1DB29CABD217 /* Pods_TestJenkin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE05BFFD7A7FF9BEBBDB8EEA /* Pods_TestJenkin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F7CF5353D33946C8EA17A42 /* Pods-TestJenkin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestJenkin.debug.xcconfig"; path = "Target Support Files/Pods-TestJenkin/Pods-TestJenkin.debug.xcconfig"; sourceTree = "<group>"; };
+		54C2354D6564B835FB6B26AD /* Pods-TestJenkin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestJenkin.release.xcconfig"; path = "Target Support Files/Pods-TestJenkin/Pods-TestJenkin.release.xcconfig"; sourceTree = "<group>"; };
 		9F4211E023FB9C8C00C0617F /* TestJenkin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestJenkin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F4211E323FB9C8C00C0617F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F4211E523FB9C8C00C0617F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		9F4211EC23FB9C8D00C0617F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F4211EF23FB9C8D00C0617F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F4211F123FB9C8D00C0617F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE05BFFD7A7FF9BEBBDB8EEA /* Pods_TestJenkin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestJenkin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71EEC5EED8C1DB29CABD217 /* Pods_TestJenkin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0686E2D14466C18EA481491D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE05BFFD7A7FF9BEBBDB8EEA /* Pods_TestJenkin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5867F27F8E1A584EAFCB5EA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F7CF5353D33946C8EA17A42 /* Pods-TestJenkin.debug.xcconfig */,
+				54C2354D6564B835FB6B26AD /* Pods-TestJenkin.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9F4211D723FB9C8C00C0617F = {
 			isa = PBXGroup;
 			children = (
 				9F4211E223FB9C8C00C0617F /* TestJenkin */,
 				9F4211E123FB9C8C00C0617F /* Products */,
+				5867F27F8E1A584EAFCB5EA9 /* Pods */,
+				0686E2D14466C18EA481491D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F4211F423FB9C8D00C0617F /* Build configuration list for PBXNativeTarget "TestJenkin" */;
 			buildPhases = (
+				A0B4EFB5EB83856406B01B23 /* [CP] Check Pods Manifest.lock */,
 				9F4211DC23FB9C8C00C0617F /* Sources */,
 				9F4211DD23FB9C8C00C0617F /* Frameworks */,
 				9F4211DE23FB9C8C00C0617F /* Resources */,
+				A0FFBA72A73860ED87CB85DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0B4EFB5EB83856406B01B23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestJenkin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0FFBA72A73860ED87CB85DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestJenkin/Pods-TestJenkin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestJenkin/Pods-TestJenkin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestJenkin/Pods-TestJenkin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F4211DC23FB9C8C00C0617F /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		9F4211F523FB9C8D00C0617F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F7CF5353D33946C8EA17A42 /* Pods-TestJenkin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -302,6 +372,7 @@
 		};
 		9F4211F623FB9C8D00C0617F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C2354D6564B835FB6B26AD /* Pods-TestJenkin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
