@@ -33,7 +33,7 @@ pipeline {
       
       stage('Archive') {
          steps {
-           sh "xcodebuild archive -workspace TestJenkin.xcworkspace - scheme "TestJenkin" -configuration Release -archivePath build/Release/TestJenkin.xcarchive""	 
+           sh "xcodebuild archive -workspace TestJenkin.xcworkspace - scheme "TestJenkin" -configuration Release -archivePath TestJenkin.xcarchive""	 
 	}
       }
    }
