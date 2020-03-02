@@ -27,3 +27,15 @@ class ViewController: UIViewController {
 
 
 //xcodebuild -exportArchive -exportFormat IPA -archivePath MyMobileApp.xcarchive -exportPath MyMobileApp.ipa -exportProvisioningProfile MerchantApp_develop
+
+//
+//xcodebuild -exportArchive -archivePath /Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.xcarchive -exportPath /Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos -exportOptionsPlist /Users/tung.dangthanh/.jenkins/workspace/LendingDemo/build/Release-iphoneos/developmentV986M848KKExportOptions.plist -allowProvisioningUpdates
+//
+//
+//
+//-exportOptionsPlist /Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/developmentV986M848KKExportOptions.plist -allowProvisioningUpdates
+//
+//
+//
+//
+//xcodebuild -exportArchive -archivePath /Users/tung.dangthanh/.jenkins/workspace/LendingDemo/build/Release-iphoneos/LendingSDKDemo.xcarchive -exportPath /Users/tung.dangthanh/.jenkins/workspace/LendingDemo/build/Release-iphoneos -exportOptionsPlist /Users/tung.dangthanh/.jenkins/workspace/LendingDemo/build/Release-iphoneos/developmentV986M848KKExportOptions.plist -allowProvisioningUpdates
