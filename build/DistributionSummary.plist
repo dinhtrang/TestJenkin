@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TestJenkin.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>34B6080AEF2E6CD123C7F466CBEBBA53C1519FF7</string>
+				<key>dateExpires</key>
+				<string>2/18/21</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>34B6080AEF2E6CD123C7F466CBEBBA53C1519FF7</string>
+						<key>dateExpires</key>
+						<string>2/18/21</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>name</key>
+					<string>Alamofire.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>V986M848KK</string>
+						<key>name</key>
+						<string></string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>V986M848KK.com.finosasia.lending.merchant</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>V986M848KK</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>V986M848KK.com.finosasia.lending.merchant</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>TestJenkin.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>d085510c-8f16-44eb-89c6-9b49024f9cd1</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.finosasia.lending.merchant</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>V986M848KK</string>
+				<key>name</key>
+				<string></string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
