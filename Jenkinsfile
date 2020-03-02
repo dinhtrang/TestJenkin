@@ -37,11 +37,12 @@ pipeline {
             // git 'https://github.com/dinhtrang/TestJenkin.git'
 
             // Run Maven on a Unix agent.
-            sh "xcodebuild1 -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin"
+            //sh "xcodebuild1 -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
-         }
+           sh "xcodebuild archive -workspace TestJenkin.xcworkspace - scheme "TestJenkin" -configuration Release -archivePath build/Release/TestJenkin.xcarchive""	 
+	}
       }
    }
 }
