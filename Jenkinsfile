@@ -42,28 +42,29 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	         sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_ipa.xcarchive"		
-	       } 
+	        // sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_ipa.xcarchive"		
+	         sh "fastlane exp"
+         } 
       }
 
-      stage('ipa_dev') {
-        steps {
-            sh "xcodebuild -exportArchive -archivePath build/TestJenkin_ipa.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
-         }
-      }
+      // stage('ipa_dev') {
+      //   steps {
+      //       sh "xcodebuild -exportArchive -archivePath build/TestJenkin_ipa.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
+      //    }
+      // }
 
 
-      stage('Archive_Test') {
-        steps {
-          sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/TestJenkin_test.xcarchive"
-        }
-      }
+      // stage('Archive_Test') {
+      //   steps {
+      //     sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/TestJenkin_test.xcarchive"
+      //   }
+      // }
 
-      stage('ipa_test') {
-        steps {
-          sh "xcodebuild -exportArchive -archivePath build/TestJenkin_test.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
-        }
-      }
+      // stage('ipa_test') {
+      //   steps {
+      //     sh "xcodebuild -exportArchive -archivePath build/TestJenkin_test.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+      //   }
+      // }
    }
 }
 
