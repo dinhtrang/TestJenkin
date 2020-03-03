@@ -41,9 +41,15 @@ pipeline {
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
-        	sh "xcodebuild -exportArchive -archivePath build/TestJenkin.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build" 
-	}
+
+	         sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_ipa.xcarchive"		
+	       }
+          
+         steps {
+            sh "xcodebuild -exportArchive -archivePath build/TestJenkin_ipa.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
+         } 
       }
+
    }
 }
 
