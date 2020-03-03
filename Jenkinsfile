@@ -58,8 +58,11 @@ pipeline {
           sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/TestJenkin_test.xcarchive"
         }
       }
+
       stage('ipa_test') {
-        sh "xcodebuild -exportArchive -archivePath build/TestJenkin_test.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+        steps {
+          sh "xcodebuild -exportArchive -archivePath build/TestJenkin_test.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+        }
       }
    }
 }
