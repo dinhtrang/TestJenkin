@@ -31,7 +31,7 @@ pipeline {
         //  }
       }
       
-      stage('Archive') {
+      stage('Archive_Dev') {
          steps {
             // Get some code from a GitHub repository
             // git 'https://github.com/dinhtrang/TestJenkin.git'
@@ -46,12 +46,21 @@ pipeline {
 	       } 
       }
 
-      stage('ipa') {
+      stage('ipa_dev') {
         steps {
             sh "xcodebuild -exportArchive -archivePath build/TestJenkin_ipa.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
          }
       }
 
+
+      stage('Archive_Test') {
+        steps {
+          sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/TestJenkin_test.xcarchive"
+        }
+      }
+      stage('ipa_test') {
+        sh "xcodebuild -exportArchive -archivePath build/TestJenkin_test.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+      }
    }
 }
 
