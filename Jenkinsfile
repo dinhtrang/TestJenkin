@@ -43,7 +43,7 @@ pipeline {
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
 	        // sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_ipa.xcarchive"		
-	         sh "/Users/tung.dangthanh/.fastlane/bin/fastlane exp"
+	         sh "fastlane test_lane"
          } 
       }
 
