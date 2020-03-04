@@ -7,7 +7,7 @@ pipeline {
 //   }
 
    stages {
-      stage('Build') {
+      stage('checkout') {
          steps {
             // Get some code from a GitHub repository
             git 'https://github.com/dinhtrang/TestJenkin.git'
@@ -31,7 +31,7 @@ pipeline {
         //  }
       }
       
-      stage('Archive_Dev') {
+      stage('Archive_ipa_Release') {
          steps {
             // Get some code from a GitHub repository
             // git 'https://github.com/dinhtrang/TestJenkin.git'
@@ -42,8 +42,24 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        // sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_ipa.xcarchive"		
-	         sh "/Users/tung.dangthanh/.fastlane/bin/fastlane scan"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/TestJenkin_release.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/TestJenkin_release.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
+         } 
+      }
+
+      stage('Archive_ipa_Debug') {
+         steps {
+            // Get some code from a GitHub repository
+            // git 'https://github.com/dinhtrang/TestJenkin.git'
+
+            // Run Maven on a Unix agent.
+            // sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin"
+
+            // To run Maven on a Windows agent, use
+            // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/TestJenkin_dev.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/TestJenkin_dev.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
          } 
       }
 
