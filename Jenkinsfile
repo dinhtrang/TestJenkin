@@ -1,10 +1,12 @@
 pipeline {
    agent any
 
-//   tools {
+  tools {
 //       // Install the Maven version configured as "M3" and add it to the path.
 //       maven "M3"
-//   }
+	xcode "Xcode integration"
+  }
+
 
    stages {
       stage('checkout') {
@@ -58,8 +60,8 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev.xcarchive"		
-	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev-${BUILD_NUMBER}.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev-${BUILD_NUMBER}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
          } 
       }
 
