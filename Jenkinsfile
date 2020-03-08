@@ -49,8 +49,8 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/Release-iphoneos/TestJenkin_release-${evn.JOB_NAME}.xcarchive"		
-	        sh "xcodebuild -exportArchive -archivePath build/Release-iphoneos/TestJenkin_release-${evn.JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/Release-iphoneos/TestJenkin_release-${JOB_NAME}.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/Release-iphoneos/TestJenkin_release-${JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
          } 
       }
 
@@ -65,8 +65,8 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev-${evn.JOB_NAME}.xcarchive"		
-	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev-${evn.JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev-${JOB_NAME}.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev-${JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
          } 
       }
 
