@@ -1,17 +1,11 @@
 pipeline {
    agent any
 
-
-    environment {
-        DEVELOPER_DIR = '/Applications/Xcode.app/Contents/Developer'
-    }
-
   tools {
-//       // Install the Maven version configured as "M3" and add it to the path.
-//       maven "M3"
-	xcode "Xcode integration"
+      // Install the Maven version configured as "M3" and add it to the path.
+      xcode "Xcode"
+      // sonarscan
   }
-
 
    stages {
       stage('checkout') {
@@ -37,7 +31,19 @@ pipeline {
         //     }
         //  }
       }
-      
+   stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'sonarscan'
+    }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+}
       stage('Archive_ipa_Release') {
          steps {
             // Get some code from a GitHub repository
@@ -49,8 +55,8 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/Release-iphoneos/TestJenkin_release-${JOB_NAME}.xcarchive"		
-	        sh "xcodebuild -exportArchive -archivePath build/Release-iphoneos/TestJenkin_release-${JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Release archive -archivePath build/Release-iphoneos/TestJenkin_release.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/Release-iphoneos/TestJenkin_release.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Release-iphoneos"
          } 
       }
 
@@ -65,8 +71,8 @@ pipeline {
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev-${JOB_NAME}.xcarchive"		
-	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev-${JOB_NAME}.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
+	        sh "xcodebuild -workspace TestJenkin.xcworkspace -sdk iphoneos -scheme TestJenkin -configuration Debug archive -archivePath build/Debug-iphoneos/TestJenkin_dev.xcarchive"		
+	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
          } 
       }
 
