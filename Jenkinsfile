@@ -87,7 +87,7 @@ pipeline {
         appCenter apiToken: APPCENTER_API_TOKEN,
             ownerName: 'tung',
             appName: 'TestJenkin',
-            pathToApp: '/Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.ipa',
+            pathToApp: 'Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.ipa',
             distributionGroups: 'tester'
       }
   }
