@@ -80,14 +80,14 @@ pipeline {
       }
 
     stage('Publish') {
-      environment {
-        APPCENTER_API_TOKEN = credentials('d1467b11fe023272f0a92d3889661ac956ad78b2')
-      }
+      // environment {
+      //   APPCENTER_API_TOKEN = credentials('d1467b11fe023272f0a92d3889661ac956ad78b2')
+      // }
       steps {
-        appCenter apiToken: APPCENTER_API_TOKEN,
+        appCenter apiToken: 'd1467b11fe023272f0a92d3889661ac956ad78b2',
             ownerName: 'tung',
             appName: 'TestJenkin',
-            pathToApp: 'Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.ipa',
+            pathToApp: '/Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.ipa',
             distributionGroups: 'tester'
       }
   }
