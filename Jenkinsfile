@@ -31,22 +31,22 @@ pipeline {
         //     }
         //  }
       }
-   stage('Sonarqube') {
-    environment {
-        scannerHome = tool 'sonarscan'
-    }
-    steps {
-        withSonarQubeEnv('Sonar qube') {
-            // sh "${scannerHome}/bin/sonar-scanner"
-            // sh "/Applications/SonarScanner/bin/sonar-scanner"
-            // sh "/Applications/SonarScanner/bin/sonar-scanner/bin/sonar-scanner"
-        	sh "${scannerHome}"
-        }
-        timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
-    }
-}
+//    stage('Sonarqube') {
+//     environment {
+//         scannerHome = tool 'sonarscan'
+//     }
+//     steps {
+//         withSonarQubeEnv('Sonar qube') {
+//             // sh "${scannerHome}/bin/sonar-scanner"
+//             // sh "/Applications/SonarScanner/bin/sonar-scanner"
+//             // sh "/Applications/SonarScanner/bin/sonar-scanner/bin/sonar-scanner"
+//         	sh "${scannerHome}"
+//         }
+//         timeout(time: 10, unit: 'MINUTES') {
+//             waitForQualityGate abortPipeline: true
+//         }
+//     }
+// }
       stage('Archive_ipa_Release') {
          steps {
             // Get some code from a GitHub repository
@@ -78,6 +78,19 @@ pipeline {
 	        sh "xcodebuild -exportArchive -archivePath build/Debug-iphoneos/TestJenkin_dev.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build/Debug-iphoneos"
          } 
       }
+
+    stage('Publish') {
+      environment {
+        APPCENTER_API_TOKEN = credentials('d1467b11fe023272f0a92d3889661ac956ad78b2')
+      }
+      steps {
+        appCenter apiToken: APPCENTER_API_TOKEN,
+            ownerName: 'tung',
+            appName: 'TestJenkin',
+            pathToApp: '/Users/tung.dangthanh/.jenkins/workspace/Lending_pipeLine/build/Release-iphoneos/TestJenkin.ipa',
+            distributionGroups: 'tester'
+      }
+  }
 
       // stage('ipa_dev') {
       //   steps {
